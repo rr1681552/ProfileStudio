@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#11152b">
+  <title>Profile Studio | Create Your Identity</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar">
+      <a href="#" class="brand">
+        <span class="brand-icon">✦</span>
+        <span>profile<span class="brand-accent">studio</span></span>
+      </a>
+
+      <div class="sidebar-label">WORKSPACE</div>
+      <a href="#editor" class="nav-link active">
+        <span>◈</span> Profile Editor
+      </a>
+      <a href="#preview" class="nav-link">
+        <span>▣</span> Live Preview
+      </a>
+      <a href="#saved" class="nav-link">
+        <span>▤</span> Saved Profiles
+      </a>
+
+      <div class="sidebar-bottom">
+        <div class="help-icon">?</div>
+        <div>
+          <strong>Profile Studio</strong>
+          <p>Your identity, beautifully designed.</p>
+        </div>
+      </div>
+    </aside>
+
+    <main class="main-content">
+      <header class="topbar">
+        <div>
+          <div class="eyebrow">YOUR PERSONAL BRAND</div>
+          <h1>Create your <span class="gradient-text">profile.</span></h1>
+          <p class="subtitle">Design a profile card that tells your story.</p>
+        </div>
+        <div class="status-pill">
+          <span class="status-dot"></span> Workspace ready
+        </div>
+      </header>
+
+      <section class="workspace">
+        <div class="editor-panel panel" id="editor">
+          <div class="section-heading">
+            <div>
+              <span class="step-label">STEP 01</span>
+              <h2>Personal details</h2>
+              <p>Let people know who you are.</p>
+            </div>
+            <span class="heading-icon">✎</span>
+          </div>
+
+          <form id="profileForm">
+            <div class="form-group">
+              <label for="name">Full name <span class="required">*</span></label>
+              <input id="name" name="name" type="text"
+                placeholder="e.g. Reshma Sebastian"
+                maxlength="80" required>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="role">Your role</label>
+                <input id="role" name="role" type="text"
+                  placeholder="e.g. Aspiring Data Scientist" maxlength="100">
+              </div>
+              <div class="form-group">
+                <label for="avatar">Avatar image URL</label>
+                <input id="avatar" name="avatar" type="url"
+                  placeholder="https://example.com/photo.jpg">
+              </div>
+            </div>
+
+            <div class="form-group">
+              <div class="label-row">
+                <label for="bio">About you</label>
+                <span class="character-count" id="bioCount">0 / 500</span>
+              </div>
+              <textarea id="bio" name="bio" rows="4" maxlength="500"
+                placeholder="Write a little introduction about yourself..."></textarea>
+            </div>
+
+            <div class="form-group">
+              <label for="skills">Skills</label>
+              <input id="skills" name="skills" type="text"
+                placeholder="Python, Machine Learning, HTML, CSS">
+              <span class="field-hint">Separate each skill with a comma.</span>
+            </div>
+
+            <div class="section-divider"></div>
+
+            <div class="section-heading social-heading">
+              <div>
+                <span class="step-label">STEP 02</span>
+                <h2>Connect with me</h2>
+                <p>Add your professional links.</p>
+              </div>
+              <span class="heading-icon">↗</span>
+            </div>
+
+            <div class="form-group">
+              <label for="github">GitHub profile</label>
+              <input id="github" name="github" type="url"
+                placeholder="https://github.com/username">
+            </div>
+
+            <div class="form-group">
+              <label for="linkedin">LinkedIn profile</label>
+              <input id="linkedin" name="linkedin" type="url"
+                placeholder="https://linkedin.com/in/username">
+            </div>
+
+            <div class="form-group">
+              <label for="website">Portfolio / Website</label>
+              <input id="website" name="website" type="url"
+                placeholder="https://yourwebsite.com">
+            </div>
+
+            <div class="form-actions">
+              <button type="reset" class="button button-secondary" id="resetBtn">
+                Clear form
+              </button>
+              <button type="submit" class="button button-primary" id="saveBtn">
+                <span>✦</span> Save profile
+              </button>
+            </div>
+          </form>
+        </div>
+
+        <div class="preview-column" id="preview">
+          <div class="preview-heading">
+            <div>
+              <span class="step-label">LIVE CANVAS</span>
+              <h2>Your profile card</h2>
+            </div>
+            <span class="live-badge"><span></span> LIVE</span>
+          </div>
+
+          <p class="preview-description">
+            Every change you make appears here instantly.
+          </p>
+
+          <article class="profile-card">
+            <div class="card-cover">
+              <div class="cover-orb orb-one"></div>
+              <div class="cover-orb orb-two"></div>
+              <span class="cover-star star-one">✦</span>
+              <span class="cover-star star-two">✧</span>
+              <span class="cover-caption">CREATIVE IDENTITY</span>
+            </div>
+
+            <div class="profile-card-body">
+              <div class="avatar-wrap">
+                <div class="avatar" id="previewAvatar">Y</div>
+                <span class="avatar-status"></span>
+              </div>
+
+              <div class="profile-identity">
+                <h3 id="previewName">Your Name</h3>
+                <p id="previewRole">Your role goes here</p>
+              </div>
+
+              <div class="profile-bio" id="previewBio">
+                Your story starts here. Add a short introduction to let the
+                world know what makes you unique.
+              </div>
+
+              <div class="card-divider"></div>
+
+              <div class="skills-title">MY SKILLS <span>✦</span></div>
+              <div class="skill-list" id="previewSkills">
+                <span class="empty-skills">Your skills will appear here</span>
+              </div>
+
+              <div class="card-divider"></div>
+
+              <div class="social-title">FIND ME ONLINE</div>
+              <div class="social-links" id="previewSocial">
+                <span class="empty-social">Your social links will appear here</span>
+              </div>
+            </div>
+
+            <div class="card-footer">
+              <span>✦ PROFILE STUDIO</span>
+              <span>MADE WITH PURPOSE</span>
+            </div>
+          </article>
+
+          <div class="preview-tip">
+            <span class="tip-icon">✧</span>
+            <p><strong>Make it yours.</strong> Add your skills and links to
+              create a profile that reflects your personality.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="saved-section panel" id="saved">
+        <div class="section-heading saved-heading">
+          <div>
+            <span class="step-label">YOUR COLLECTION</span>
+            <h2>Saved profiles</h2>
+            <p>Your profiles saved on this application.</p>
+          </div>
+          <span class="saved-count" id="savedCount">0 profiles</span>
+        </div>
+
+        <div class="saved-list" id="savedProfiles">
+          <div class="empty-state">
+            <div class="empty-state-icon">▤</div>
+            <h3>No profiles yet</h3>
+            <p>Create your first profile and click “Save profile”.</p>
+          </div>
+        </div>
+      </section>
+
+      <footer class="page-footer">
+        <span>© 2026 Profile Studio</span>
+        <span>Designed to make your identity stand out. ✦</span>
+      </footer>
+    </main>
+  </div>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+</body>
+</html>
